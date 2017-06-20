@@ -53,6 +53,7 @@
 
         android:background="?android:selectableItemBackground"
         android:soundEffectsEnabled="true"
+        android:hapticFeedbackEnabled="true"
         android:clickable="true"
         />
 
@@ -66,6 +67,7 @@
 
         android:background="?android:selectableItemBackground"
         android:soundEffectsEnabled="true"
+        android:hapticFeedbackEnabled="true"
         android:clickable="true"
         />
 
