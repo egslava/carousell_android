@@ -7,10 +7,10 @@
     tools:context="ru.egslava.reddit.MainActivity">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_recyclerview_posts"
         android:paddingTop="16dp"
         android:paddingBottom="64dp"
         android:clipToPadding="false"
-        android:id="@+id/main_recyclerview_posts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

@@ -8,6 +8,7 @@
     >
 
     <TextView
+        android:id="@+id/main_item_textview_title"
         android:text="Deception"
         android:textColor="#000"
         android:layout_marginLeft="16dp"
@@ -22,6 +23,7 @@
         />
 
     <TextView
+        android:id="@+id/main_item_textview_description"
         android:text="5 hours ago by ThatsMyHoverboard to r/funny"
         android:textColor="#757575"
         android:layout_marginLeft="16dp"
@@ -35,8 +37,12 @@
         android:layout_height="wrap_content"
         />
 
+
+    <!-- please, don't set any src here
+         otherwise tests won't be able to check
+         was an image set or not -->
     <ImageView
-        android:background="#ACC"
+        android:id="@+id/main_item_imageview"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="48dp"
         android:layout_width="match_parent"
@@ -46,6 +52,7 @@
 
 
     <TextView
+        android:id="@+id/main_item_textview_downvotes"
         android:gravity="center_vertical|left"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -60,6 +67,7 @@
 
 
     <ImageView
+        android:id="@+id/main_item_click_upvote"
         android:gravity="center_vertical"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -76,6 +84,7 @@
 
 
     <TextView
+        android:id="@+id/main_item_textview_upvotes"
         android:gravity="center_vertical|left"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -89,6 +98,7 @@
 
 
     <ImageView
+        android:id="@+id/main_item_click_downvote"
         android:gravity="center_vertical"
         android:layout_width="48dp"
         android:layout_height="48dp"
