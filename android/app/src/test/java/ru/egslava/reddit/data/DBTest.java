@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by egslava@gmail.com on 21/06/2017.
  */
@@ -57,6 +55,7 @@ public class DBTest {
 
         // element should float but we're trying to save the order
         Assert.assertEquals( post3, DB.INSTANCE.posts.get(0));
+        Assert.assertEquals( 1, post3.getNumUpvotes());
         Assert.assertEquals( post1, DB.INSTANCE.posts.get(1));
         Assert.assertEquals( post2, DB.INSTANCE.posts.get(2));
     }

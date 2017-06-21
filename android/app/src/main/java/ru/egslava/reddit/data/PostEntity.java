@@ -11,12 +11,18 @@ import android.support.annotation.Nullable;
  * that is comfortable for consuming by RecyclerView's Adapter.
  *
  * This class - is that _inner form_. So that's why time is already a String
+ *
+ * Perhaps, also, you noticed, that some fields have getter, and some  - not yet :) I don't see
+ * any reason to do it now, until "encapsulate field" refactoring method is available
  */
 public class PostEntity {
     public String   title;
     public String   time;       // I think we should't format time string everytime a view is requested
 
-    public int      numUpvotes;
+    // this field is packaged, because, normally, you should not try to change it
+    // the best idea - is to modify DB singleton. For instance, take a look at {@link ru.egslava.reddit.data.DB#upvote}
+           int      numUpvotes;
+
     public int      numDownvotes;
 
     /** @see #numUpvotes */
@@ -46,7 +52,7 @@ public class PostEntity {
 
         PostEntity that = (PostEntity) o;
 
-        if (numUpvotes != that.numUpvotes) return false;
+        if (getNumUpvotes() != that.getNumUpvotes()) return false;
         if (numDownvotes != that.numDownvotes) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
@@ -62,7 +68,7 @@ public class PostEntity {
     public int hashCode() {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (time != null ? time.hashCode() : 0);
-        result = 31 * result + numUpvotes;
+        result = 31 * result + getNumUpvotes();
         result = 31 * result + numDownvotes;
         result = 31 * result + (strUpvotes != null ? strUpvotes.hashCode() : 0);
         result = 31 * result + (strDownvotes != null ? strDownvotes.hashCode() : 0);
@@ -75,11 +81,15 @@ public class PostEntity {
         return "PostEntity{" +
                 "title='" + title + '\'' +
                 ", time='" + time + '\'' +
-                ", numUpvotes=" + numUpvotes +
+                ", numUpvotes=" + getNumUpvotes() +
                 ", numDownvotes=" + numDownvotes +
                 ", strUpvotes='" + strUpvotes + '\'' +
                 ", strDownvotes='" + strDownvotes + '\'' +
                 ", picture='" + picture + '\'' +
                 '}';
+    }
+
+    public int getNumUpvotes() {
+        return numUpvotes;
     }
 }

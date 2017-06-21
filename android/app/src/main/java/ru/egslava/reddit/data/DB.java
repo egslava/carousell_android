@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Observable;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by egslava@gmail.com on 20/06/2017.
@@ -39,7 +37,7 @@ public enum DB {
         comparatorUpvoteDescend = new Comparator<PostEntity>() {
             @Override
             public int compare(@NonNull PostEntity o1, @NonNull PostEntity o2) {
-                int d = o2.numUpvotes - o1.numUpvotes;
+                int d = o2.getNumUpvotes() - o1.getNumUpvotes();
                 if (d < 0) return -1;
                 if (d > 0) return 1;
                 return 0;
@@ -79,7 +77,7 @@ public enum DB {
 
     public void add(@NonNull PostEntity entity){
         mPosts.add(entity);
-        if (entity.numUpvotes != 0){
+        if (entity.getNumUpvotes() != 0){
             Log.w(TAG, "add: it seems entity.numUpvotes has a value, different from 0, " + entity);
         }
 //        Collections.sort(mPosts, comparatorUpvoteDescend);
@@ -91,9 +89,9 @@ public enum DB {
 
     /** in real life it should be long, but in our case int is more than enough */
     public void upvote(int position) {
-        mPosts.get(position).numUpvotes++;
+        mPosts.get(position).numUpvotes = mPosts.get(position).getNumUpvotes() + 1;
         while (position > 0 ){
-            if (mPosts.get(position).numUpvotes <= mPosts.get(position - 1).numUpvotes) break;
+            if (mPosts.get(position).getNumUpvotes() <= mPosts.get(position - 1).getNumUpvotes()) break;
             Collections.swap(mPosts, position, position - 1);
             position --;
         }
