@@ -1,6 +1,7 @@
 package ru.egslava.reddit.data;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,7 +27,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public enum DB {
     INSTANCE; // singleton :)
 
-    private ArrayList<PostEntity> mPosts = new ArrayList<>(20);
+    public static final String TAG = "DB";
+
+    ArrayList<PostEntity> mPosts = new ArrayList<>(20);
     public List<PostEntity> posts = Collections.unmodifiableList(mPosts);
 
     private final Comparator<PostEntity> comparatorUpvoteDescend;
@@ -42,7 +45,9 @@ public enum DB {
                 return 0;
             }
         };
+    }
 
+    public void fillDemo(){
         mPosts.add(new PostEntity("5 mins", "Smiling girl in white blouse", 15, 3, "http://thedailynewnation.com/library/1494866166_1.jpg"));
         mPosts.add(new PostEntity("2 hours", "Blond girl with grey eyes", 15, 3, "https://wallpaperscraft.com/image/girl_face_blonde_hair_wind_hair_29111_2560x1600.jpg"));
         mPosts.add(new PostEntity("yesterday", "Happy girl in pink hat", 15, 3, "http://www.newhdwallpaper.in/wp-content/uploads/2014/09/Pretty-happy-girl-stylish-look.jpg"));
@@ -74,7 +79,10 @@ public enum DB {
 
     public void add(@NonNull PostEntity entity){
         mPosts.add(entity);
-        Collections.sort(mPosts, comparatorUpvoteDescend);
+        if (entity.numUpvotes != 0){
+            Log.w(TAG, "add: it seems entity.numUpvotes has a value, different from 0, " + entity);
+        }
+//        Collections.sort(mPosts, comparatorUpvoteDescend);
 
         if (mListener != null){
             mListener.onDbChanged( posts );
