@@ -52,8 +52,8 @@ public class MainActivityTest {
         // also, please, don't forget to turn on an Internet connection
         onView( allOf(withId( R.id.main_recyclerview_posts ), isDisplayed()) )
                 .check(RecyclerViewAssertions.hasItemsCount(20))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("5 mins")))))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("Scientists found a new way...")))))
+                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("3 months")))))
+                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("Hairstyle with white flower")))))
                 .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("1500")))))
                 .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("3")))))
                 .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(allOf(withId(R.id.main_item_imageview),ImageViewAssertions.hasImage())) )))
