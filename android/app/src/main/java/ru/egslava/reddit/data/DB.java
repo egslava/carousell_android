@@ -89,6 +89,20 @@ public enum DB {
         }
     }
 
+    /** in real life it should be long, but in our case int is more than enough */
+    public void upvote(int position) {
+        mPosts.get(position).numUpvotes++;
+        while (position > 0 ){
+            if (mPosts.get(position).numUpvotes <= mPosts.get(position - 1).numUpvotes) break;
+            Collections.swap(mPosts, position, position - 1);
+            position --;
+        }
+
+        if (mListener != null){
+            mListener.onDbChanged( posts );
+        }
+    }
+
     DbListener mListener = null;
     public void setListener(DbListener listener){
         if (mListener != null) throw new UnsupportedOperationException("Multiple listeners are not supported");
