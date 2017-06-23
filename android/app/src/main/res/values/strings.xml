@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Reddit</string>
+    <string name="title_activity_add_post">Add new post</string>
+    <string name="add_edittext_message_hint">please, enter your message here</string>
+    <string name="post_time_recently">Recently by You</string>
+    <string name="add_edittext_message_error_empty_text">The text can not be empty</string>
+    <string name="add_textview_symbols_indicator_format">%1$d/255</string>
+    <string name="post_picture_default">http://www.tfreeca22.com/data/file/tani/2948791334_jfZXLxcn_EC8BA0EC84B8EAB8B0_EC9790EBB098EAB28CEBA6ACEC98A8_Death_and_Rebirth_CD1.avi_20130511_190350.480.jpg</string>
 </resources>

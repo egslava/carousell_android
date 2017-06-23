@@ -1,4 +1,4 @@
-package ru.egslava.reddit.list;
+package ru.egslava.reddit.ui.list;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.Arrays;
 import java.util.List;
 
 import ru.egslava.reddit.R;

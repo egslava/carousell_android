@@ -1,10 +1,7 @@
 package ru.egslava.reddit;
 
-import android.support.test.espresso.Espresso;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 
-import org.hamcrest.core.AllOf;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,6 +10,7 @@ import org.junit.Test;
 import ru.egslava.reddit.assertions.ImageViewAssertions;
 import ru.egslava.reddit.assertions.RecyclerViewAssertions;
 import ru.egslava.reddit.matchers.RecyclerViewMatchers;
+import ru.egslava.reddit.ui.MainActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -21,7 +19,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.core.AllOf.allOf;
-import static org.junit.Assert.*;
 
 /**
  * Created by egslava@gmail.com on 20/06/2017.
@@ -59,5 +56,6 @@ public class MainActivityTest {
                 .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(allOf(withId(R.id.main_item_imageview),ImageViewAssertions.hasImage())) )))
                 ;
     }
+
 
 }
