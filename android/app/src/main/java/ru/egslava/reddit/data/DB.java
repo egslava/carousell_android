@@ -71,7 +71,7 @@ public enum DB {
     }
 
 
-    interface DbListener{
+    public interface DbListener{
         void onDbChanged ( List<PostEntity> posts);
     }
 
@@ -89,13 +89,20 @@ public enum DB {
 
     /** in real life it should be long, but in our case int is more than enough */
     public void upvote(int position) {
-        mPosts.get(position).numUpvotes = mPosts.get(position).getNumUpvotes() + 1;
+        mPosts.get(position).setNumUpvotes(mPosts.get(position).getNumUpvotes() + 1);
         while (position > 0 ){
             if (mPosts.get(position).getNumUpvotes() <= mPosts.get(position - 1).getNumUpvotes()) break;
             Collections.swap(mPosts, position, position - 1);
             position --;
         }
 
+        if (mListener != null){
+            mListener.onDbChanged( posts );
+        }
+    }
+
+    public void clear(){
+        mPosts.clear();
         if (mListener != null){
             mListener.onDbChanged( posts );
         }

@@ -21,7 +21,7 @@ public class PostEntity {
 
     // this field is packaged, because, normally, you should not try to change it
     // the best idea - is to modify DB singleton. For instance, take a look at {@link ru.egslava.reddit.data.DB#upvote}
-           int      numUpvotes;
+    private int      numUpvotes;
 
     public int      numDownvotes;
 
@@ -40,7 +40,7 @@ public class PostEntity {
         strUpvotes = String.valueOf(numUpvotes);
         strDownvotes = String.valueOf(numDownvotes);
 
-        this.numUpvotes = numUpvotes;
+        this.setNumUpvotes(numUpvotes);
         this.numDownvotes = numDownvotes;
         this.picture = picture;
     }
@@ -91,5 +91,10 @@ public class PostEntity {
 
     public int getNumUpvotes() {
         return numUpvotes;
+    }
+
+    public void setNumUpvotes(int numUpvotes) {
+        this.numUpvotes = numUpvotes;
+        this.strUpvotes = String.valueOf(numUpvotes);
     }
 }
