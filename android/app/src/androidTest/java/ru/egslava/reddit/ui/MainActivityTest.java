@@ -109,4 +109,48 @@ public class MainActivityTest {
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) );
     }
+    @Test
+    public void canDownvote(){
+        DB.INSTANCE.clear();
+        DB.INSTANCE.add(new PostEntity("time", "title1", 0, 0, null));
+        DB.INSTANCE.add(new PostEntity("time", "title2", 0, 0, null));
+        DB.INSTANCE.add(new PostEntity("time", "title3", 0, 0, null));
+
+        mRule.launchActivity(new Intent(InstrumentationRegistry.getTargetContext(), MainActivity.class));
+
+        onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
+                .check(RecyclerViewAssertions.hasItemsCount(3))
+                .check(matches(RecyclerViewMatchers.atPosition(0, hasDescendant(withText("title1")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(1, hasDescendant(withText("title2")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("title3")))) )
+        ;
+
+        // clicking upvote button on the third element
+        onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
+                .perform(RecyclerViewActions.scrollToPosition(2))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(2,
+                        UtilsRecyclerViewActions.clickChildViewWithId(R.id.main_item_click_downvote)));
+
+        // should bloat up (the code is broken down on several parts, because it's very comfortable
+        // to call SystemClock.sleep in between and see mistakes visually,
+        onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
+                .check(RecyclerViewAssertions.hasItemsCount(3))
+                .perform(RecyclerViewActions.scrollToPosition(0))
+                .check(matches(RecyclerViewMatchers.atPosition(0, hasDescendant(withText("title1")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(0, hasDescendant(withText("0")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(0, hasDescendant(withText("0")))) );
+
+        // we also care about the order of elements
+        onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
+                .perform(RecyclerViewActions.scrollToPosition(1))
+                .check(matches(RecyclerViewMatchers.atPosition(1, hasDescendant(withText("title2")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(1, hasDescendant(withText("0")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(1, hasDescendant(withText("0")))) );
+
+        onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
+                .perform(RecyclerViewActions.scrollToPosition(2))
+                .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("title3")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) )
+                .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("1")))) );
+    }
 }

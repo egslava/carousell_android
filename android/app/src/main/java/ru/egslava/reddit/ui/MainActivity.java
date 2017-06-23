@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements PostsAdapter.Item
                 DB.INSTANCE.upvote(position);
                 break;
             }
+            case R.id.main_item_click_downvote:{
+                DB.INSTANCE.downvote(position);
+                break;
+            }
         }
     }
 

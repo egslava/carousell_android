@@ -100,6 +100,16 @@ public enum DB {
             mListener.onDbChanged( posts );
         }
     }
+    /** in real life it should be long, but in our case int is more than enough */
+    public void downvote(int position) {
+        PostEntity post = mPosts.get(position);
+        post.numDownvotes++;
+        post.strDownvotes = String.valueOf(post.numDownvotes);
+
+        if (mListener != null){
+            mListener.onDbChanged( posts );
+        }
+    }
 
     public void clear(){
         mPosts.clear();
