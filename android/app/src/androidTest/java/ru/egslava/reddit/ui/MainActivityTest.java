@@ -45,27 +45,36 @@ public class MainActivityTest {
     @Before
     public void setUp() throws Exception {
 
+        // this is a special hack, because, it seems, Espresso doesn't wait until the previous activity has ben stopped
+        // and just run the next one. So we can use this solution: https://stackoverflow.com/a/42638192
+        // or just reset listeners manually in tests. Cause the bug in Espresso, I think, it's appropriate
+        // just reset listeners
+        DB.INSTANCE.setListener(null);
+        DB.INSTANCE.clear();
     }
 
     @After
     public void tearDown() throws Exception {
-
+//        DB.INSTANCE.unsetListener();
     }
 
     @Test
     public void showsList() {
 
-        mRule.launchActivity(new Intent(InstrumentationRegistry.getTargetContext(), MainActivity.class));
+
+        DB.INSTANCE.add(new PostEntity("time", "title", 1, 2, "http://eragenx.com/wp-content/uploads/2016/12/velley-of-flowers.png"));
+
+        mRule.launchActivity(null);
 
         // this test, perhaps, will be passed not from the first time, because Glide need to cache the results
         // also, please, don't forget to turn on an ------Internet connection-------
         onView( allOf(ViewMatchers.withId( R.id.main_recyclerview_posts ), isDisplayed()) )
-                .check(RecyclerViewAssertions.hasItemsCount(20))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("3 months")))))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("Hairstyle with white flower")))))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("1500")))))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("3")))))
-                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(allOf(withId(R.id.main_item_imageview),ImageViewAssertions.hasImage())) )))
+                .check(RecyclerViewAssertions.hasItemsCount(1))
+                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("time")))))
+                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("title")))))
+                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("1")))))
+                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(withText("2")))))
+//                .check( matches( RecyclerViewMatchers.atPosition(0, hasDescendant(allOf(withId(R.id.main_item_imageview),ImageViewAssertions.hasImage())) )))
                 ;
     }
 
@@ -76,7 +85,7 @@ public class MainActivityTest {
         DB.INSTANCE.add(new PostEntity("time", "title2", 0, 0, null));
         DB.INSTANCE.add(new PostEntity("time", "title3", 0, 0, null));
 
-        mRule.launchActivity(new Intent(InstrumentationRegistry.getTargetContext(), MainActivity.class));
+        mRule.launchActivity(null);
 
         onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
                 .check(RecyclerViewAssertions.hasItemsCount(3))
@@ -109,6 +118,7 @@ public class MainActivityTest {
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("title2")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) );
+
     }
     @Test
     public void canDownvote(){
@@ -117,7 +127,8 @@ public class MainActivityTest {
         DB.INSTANCE.add(new PostEntity("time", "title2", 0, 0, null));
         DB.INSTANCE.add(new PostEntity("time", "title3", 0, 0, null));
 
-        mRule.launchActivity(new Intent(InstrumentationRegistry.getTargetContext(), MainActivity.class));
+        mRule.launchActivity(null);
+
 
         onView(allOf( withId( R.id.main_recyclerview_posts), isDisplayed()))
                 .check(RecyclerViewAssertions.hasItemsCount(3))
@@ -153,6 +164,7 @@ public class MainActivityTest {
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("title3")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("1")))) );
+
     }
 
     /**
@@ -160,7 +172,7 @@ public class MainActivityTest {
      */
     @Test
     public void canAdd(){
-        mRule.launchActivity(new Intent(InstrumentationRegistry.getTargetContext(), MainActivity.class));
+        mRule.launchActivity(null);
         onView(allOf( withId(R.id.main_fab_add), isDisplayed())).perform(ViewActions.click());
 
         onView( withId(R.id.add_edittext_message)).check( matches(isDisplayed()) );

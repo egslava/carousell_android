@@ -33,12 +33,14 @@ public class MainActivity extends AppCompatActivity implements PostsAdapter.Item
 
 
         findViewById(R.id.main_fab_add).setOnClickListener(this);
+
         DB.INSTANCE.setListener(this);
+        onDbChanged(DB.INSTANCE.posts);
     }
 
     @Override
     protected void onDestroy() {
-        DB.INSTANCE.unsetListener();
+        DB.INSTANCE.unsetListener(this);
         super.onDestroy();
     }
 

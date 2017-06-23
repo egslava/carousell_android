@@ -1,6 +1,7 @@
 package ru.egslava.reddit.data;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -134,13 +135,18 @@ public enum DB {
     }
 
     DbListener mListener = null;
-    public void setListener(DbListener listener){
-        if (mListener != null) throw new UnsupportedOperationException("Multiple listeners are not supported");
+
+    /** @param listener a listener or null if we want to unsubscribe*/
+    public void setListener(@Nullable DbListener listener){
+//        new Exception().printStackTrace();
+//        if (mListener != null) throw new UnsupportedOperationException("Multiple listeners are not supported");
         mListener = listener;
     }
 
-    public void unsetListener(){
-        mListener = null;
+    public void unsetListener(DbListener listener){
+        if (mListener == listener){
+            mListener = null;
+        }
     };
 
 
