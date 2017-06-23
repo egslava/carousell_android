@@ -73,7 +73,9 @@ public class AddPostActivity extends AppCompatActivity implements TextView.OnEdi
             DB.INSTANCE.add(new PostEntity(getString(R.string.post_time_recently), mEditTextMessage.getText().toString(),
                     0, 0, getString(R.string.post_picture_default)));
 
-            NavUtils.navigateUpFromSameTask(this);
+            setResult(RESULT_OK);
+            finish();
+//            NavUtils.navigateUpFromSameTask(this);
 //            finish();
 
             return true;

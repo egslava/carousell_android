@@ -16,6 +16,7 @@ import ru.egslava.reddit.ui.list.PostsAdapter;
 
 public class MainActivity extends AppCompatActivity implements PostsAdapter.ItemClickListener, View.OnClickListener, DB.DbListener {
 
+    private static final int ADD_NEW_REQUEST_CODE = 1;
     private RecyclerView mRecyclerViewPosts;
     private PostsAdapter mAdapter;
 
@@ -59,8 +60,16 @@ public class MainActivity extends AppCompatActivity implements PostsAdapter.Item
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.main_fab_add:
-                startActivity(new Intent(this, AddPostActivity.class));
+                startActivityForResult(new Intent(this, AddPostActivity.class), ADD_NEW_REQUEST_CODE);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ADD_NEW_REQUEST_CODE && resultCode == RESULT_OK){
+            mRecyclerViewPosts.scrollToPosition( mAdapter.getItemCount() - 1 );
         }
     }
 

@@ -46,26 +46,41 @@ public enum DB {
     }
 
     public void fillDemo(){
-        mPosts.add(new PostEntity("5 mins", "Smiling girl in white blouse", 15, 3, "http://thedailynewnation.com/library/1494866166_1.jpg"));
-        mPosts.add(new PostEntity("2 hours", "Blond girl with grey eyes", 15, 3, "https://wallpaperscraft.com/image/girl_face_blonde_hair_wind_hair_29111_2560x1600.jpg"));
-        mPosts.add(new PostEntity("yesterday", "Happy girl in pink hat", 15, 3, "http://www.newhdwallpaper.in/wp-content/uploads/2014/09/Pretty-happy-girl-stylish-look.jpg"));
-        mPosts.add(new PostEntity("2 days", "The girl on a beach", 15, 3, "http://7bna.net/images/wallpapers-girl/wallpapers-girl-17.jpg"));
-        mPosts.add(new PostEntity("yesterday", "Tanned girl with green eyes", 15, 3, "http://hanksrepublic.com/wp-content/uploads/2017/05/ravishing-wallpaper-woman-hd.jpg"));
-        mPosts.add(new PostEntity("5 mins", "Brunette girl with grey eyes", 15, 3, "http://bestscreenwallpaper.pro/wp-content/uploads/2013/10/megan-fox-megan-fox-wallpapers-HD-magan-fox-images-megan-fox-movies-9.jpg"));
-        mPosts.add(new PostEntity("3 hours", "The girl in white posing", 15, 3, "https://images4.alphacoders.com/163/163518.jpg"));
-        mPosts.add(new PostEntity("An hour", "Heart in hands", 15, 3, "http://www.sunhome.ru/i/wallpapers/39/devushki-nimfomanki.orig.jpg"));
-        mPosts.add(new PostEntity("2 hours", "Indian girl with a card", 15, 3, "https://cdn.cloudpix.co/images/beautiful-women/beautiful-women-hd-wallpapers-beautiful-women-hd-wallpapers-for-mobile-free-download-desktop-wallpaper-facebook-of-flowers-nature-baby-wallpaper-b109f8df0bcbe5b42762303d698f8088-large-1164673.jpg"));
-        mPosts.add(new PostEntity("A day", "Black hair girl in white dress", 15, 3, "https://www.highreshdwallpapers.com/wp-content/uploads/2012/08/Beautiful-Woman-Wallpaper.jpg"));
-        mPosts.add(new PostEntity("5 mins", "Model with wind in hair", 15, 3, "http://goldwallpapers.com/uploads/posts/pretty-women-wallpaper/pretty_women_wallpaper_005.jpg"));
-        mPosts.add(new PostEntity("5 mins", "Young teenage girl", 15, 3, "https://s-media-cache-ak0.pinimg.com/originals/7d/9d/84/7d9d84d283175a3d0eb3b73db7bb2d1b.jpg"));
-        mPosts.add(new PostEntity("3 months", "Hairstyle with white flower", 1500, 3, "http://www.incrediblesnaps.com/wp-content/uploads/2015/09/beautiful-girl-with-flowers-7.jpg"));
-        mPosts.add(new PostEntity("3 hours", "Girl with a bracelet", 15, 3, "https://wallpaperscraft.com/image/blonde_hair_makeup_face_model_96124_1920x1080.jpg"));
-        mPosts.add(new PostEntity("2 days", "Morning of a model", 15, 3, "https://s-media-cache-ak0.pinimg.com/originals/e5/ec/fe/e5ecfe99b6ee0a3baccc9ef8689038a6.jpg"));
-        mPosts.add(new PostEntity("5 mins", "Girl next door in green shirt", 15, 3, "http://cdn2.hd-background.com/wp-content/uploads/2016/04/Awesome-girl-hd-wallpapers-hd.jpg"));
-        mPosts.add(new PostEntity("yesterday", "Red hair girl", 15, 3, "http://7bna.net/images/wallpapers-girl/wallpapers-girl-9.jpg"));
-        mPosts.add(new PostEntity("2 days", "Ginger girl", 15, 3, "http://www.atozpictures.com/admin/uploads/2016/06/emma-stone-hd-desktop-wallpaper.jpg"));
-        mPosts.add(new PostEntity("5 mins", "Girl near the window", 15, 3, "https://i.ytimg.com/vi/0xe4H666drk/maxresdefault.jpg"));
-        mPosts.add(new PostEntity("2 years", "Black girl", 1500, 3, "http://top101news.com/wp-content/uploads/2016/06/Gabrielle-Union-USA-most-beautiful-black-women-2017.jpg"));
+
+
+
+
+//        Fantasy wallpaper https://ae01.alicdn.com/kf/HTB1OB3GJFXXXXXJXVXXq6xXFXXXk/2016-New-137cmx69cm-Cotton-Bath-Towel-beautiful-night-sea-dolphin-moon-Printed-Large-Shower-Towel-Hotel.jpg
+//
+//
+//        Premiere:
+
+//
+//
+//        In Pictures: The Most Beautiful Natural
+
+
+
+        mPosts.add(new PostEntity("5 mins", "Our travel plan of 2017", 1, 3, "http://eragenx.com/wp-content/uploads/2016/12/velley-of-flowers.png"));
+        mPosts.add(new PostEntity("2 hours", "Meersburg Germany Lake Constance", 2, 3, "https://s-media-cache-ak0.pinimg.com/originals/47/8a/85/478a85cfbe6dc8c86475d944c02472bc.jpg"));
+        mPosts.add(new PostEntity("yesterday", "Military Schooler", 3, 3, "https://militaryschooler.com/most-beautiful-military-school/randolph-macon-academy.jpg"));
+        mPosts.add(new PostEntity("2 days", "AMA DABLAM THE BEAUTIFUL MOUNTAIN", 4, 3, "http://www.magicalnepal.com/blog/wp-content/uploads/bfi_thumb/Ama-Dablam-From-Kalapatthar-30dxq1gun85hz5933kyoei.jpg"));
+        mPosts.add(new PostEntity("yesterday", "A beach in Brazil", 5, 3, "http://static1.businessinsider.com/image/57a0b808dd0895003a8b48ed-1190-625/14-of-the-most-beautiful-beaches-in-brazil.jpg"));
+        mPosts.add(new PostEntity("5 mins", "Real Estate Agency in French Provinces", 6, 3, "https://sobarnes.com/wp-content/uploads/2016/12/you-dont-have-to-be-a-millionaire-to-visit-the-french-riviera-1000x500.jpg"));
+        mPosts.add(new PostEntity("3 hours", "Imagery from Sam Raimi's OZ THE GREAT AND POWERFUL ...", 7, 3, "https://static.squarespace.com/static/51b3dc8ee4b051b96ceb10de/51ce6099e4b0d911b4489b79/51ce6178e4b0d911b4495465/1342552342099/1000w/oz-great-powerful-7162012.jpeg"));
+        mPosts.add(new PostEntity("An hour", "World's most scenic airport landings", 8, 3, "http://static3.businessinsider.com/image/5911ff1cdd0895f7598b466c-1190-625/the-10-most-beautiful-airport-landings-in-the-world.jpg"));
+        mPosts.add(new PostEntity("2 hours", "Just nature...", 9, 3, "https://coresites-cdn.factorymedia.com/twc/wp-content/uploads/2015/06/uk-trails-best-natural-mountain-biking-trails-6.jpg"));
+        mPosts.add(new PostEntity("A day", "Agriculture Photography by Todd Klassy", 10, 3, "https://static1.squarespace.com/static/50631261e4b0e9530e2c53a7/53e99182e4b06e563931739c/575b1b1307eaa0338ce464aa/1493438255527/Beautiful-Montana-Barns.jpg"));
+        mPosts.add(new PostEntity("5 mins", "Drawings Of Nature", 11, 3, "http://img.cheapsoccercleatsale.com/images/g03.a.alicdn.com/kf/HTB1qA7LHVXXXXaNXFXXq6xXFXXXE/Harmony-with-font-b-nature-b-font-DIY-painting-diy-font-b-draw-b-font-resin.jpg"));
+        mPosts.add(new PostEntity("5 mins", "Cheap Village", 12, 3, "https://ae01.alicdn.com/kf/HTB1hN0gIXXXXXcoXXXXq6xXFXXX9/Free-shipping-font-b-beautiful-b-font-scenery-wall-arts-tapestries-classical-design-peaceful-font-b.jpg"));
+        mPosts.add(new PostEntity("3 months", "Fountaineer debut", 13, 3, "http://tonedeaf.com.au/wp-content/uploads/2017/06/fountaineer.png"));
+        mPosts.add(new PostEntity("3 hours", "Top 50 Most Beautiful Flowers in the World ", 14, 3, "http://a2zpost.com/wp-content/uploads/2017/01/MBRP-21.jpg"));
+        mPosts.add(new PostEntity("2 days", "5th International Symposium on Highway Geometric Design", 15, 3, "https://static1.squarespace.com/static/51cc8d46e4b0b242fc8d0f33/t/552f168de4b0cea11df1ccf7/1429149326076/Beautiful_BC.jpg?format=1500w"));
+        mPosts.add(new PostEntity("5 mins", "10 Beautiful Islands That No One Lives...", 16, 3, "http://www.lolwot.com/wp-content/uploads/2016/01/10-beautiful-islands-that-no-one-lives-on-4.jpg"));
+        mPosts.add(new PostEntity("yesterday", "DIY Hairstyle For Wedding", 17, 3, "http://4.bp.blogspot.com/-CuHFKA_jwPw/VorrUtk_2_I/AAAAAAAACow/YpUlvYlDDOk/s1600/Beautiful%2BDIY%2BHairstyle%2BFor%2BWedding%2BAnd%2BParty.jpg"));
+        mPosts.add(new PostEntity("2 days", "Be Boldly Expo Tickets", 18, 3, "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F29895199%2F139578051579%2F1%2Foriginal.jpg?w=1000&rect=109%2C0%2C1484%2C742&s=57633700dd46db9f6066655b827dd4a9"));
+        mPosts.add(new PostEntity("5 mins", "Hanabi Japanese fireworks", 19, 3, "http://www.j-r-s.com/wp-content/uploads/cache/images/remote/i1-wp-com/134463960906413229088__DSC0228-629054971.png"));
+        mPosts.add(new PostEntity("2 years", "Bright apartment in New Jersey  ", 20, 3, "http://homeklondike.org/wp-content/uploads/2015/08/1-beautiful-interior-in-shades-of-yellow.jpg"));
 
         Collections.sort(mPosts, comparatorUpvoteDescend);
     }
