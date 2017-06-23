@@ -43,6 +43,7 @@
          was an image set or not -->
     <ImageView
         android:id="@+id/main_item_imageview"
+        android:scaleType="centerCrop"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="48dp"
         android:layout_width="match_parent"

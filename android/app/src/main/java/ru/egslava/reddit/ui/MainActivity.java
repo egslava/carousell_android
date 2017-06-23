@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements PostsAdapter.Item
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.main_item_click_upvote:
+            case R.id.main_fab_add:
                 startActivity(new Intent(this, AddPostActivity.class));
                 break;
         }

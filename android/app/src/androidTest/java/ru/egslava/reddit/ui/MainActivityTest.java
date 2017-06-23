@@ -3,6 +3,7 @@ package ru.egslava.reddit.ui;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -152,5 +153,16 @@ public class MainActivityTest {
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("title3")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("0")))) )
                 .check(matches(RecyclerViewMatchers.atPosition(2, hasDescendant(withText("1")))) );
+    }
+
+    /**
+     * It's just a simple test, because the main test is in {@link AddPostActivityTest}
+     */
+    @Test
+    public void canAdd(){
+        mRule.launchActivity(new Intent(InstrumentationRegistry.getTargetContext(), MainActivity.class));
+        onView(allOf( withId(R.id.main_fab_add), isDisplayed())).perform(ViewActions.click());
+
+        onView( withId(R.id.add_edittext_message)).check( matches(isDisplayed()) );
     }
 }
